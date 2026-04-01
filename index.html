@@ -1,7 +1,8 @@
-1<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
 <title>System Alert</title>
+
 <style>
 body {
   background: black;
@@ -11,41 +12,54 @@ body {
   margin-top: 20%;
   animation: flash 0.3s infinite;
 }
+
 @keyframes flash {
   0% {background:black;}
   50% {background:red;}
   100% {background:black;}
 }
+
 h1 {
   font-size: 100px;
 }
-p  {
-  font-size:  50px;
+
+p {
+  font-size: 50px;
 }
 </style>
+
 </head>
 
 <body>
 
-<h1>  APRIL FOOL  </h1>
-<p>  GOT YOU   </p>
+<h1>APRIL FOOL</h1>
+<p>GOT YOU</p>
 
-<audio id="bgmusic" loop>
+<audio id="bgmusic" autoplay loop muted>
   <source src="https://raw.githubusercontent.com/vamshiponnala/Album/main/April%20Fool%20Banaya%20(From%20April%20Fool)_1.mp3" type="audio/mpeg">
 </audio>
 
 <script>
-function playMusic() {
-  document.getElementById("bgmusic").play();
-}
-</audio>
+window.onload = function() {
 
+  let music = document.getElementById("bgmusic");
 
-// vibration
-if (navigator.vibrate) {
-  navigator.vibrate([500, 300, 500, 300, 1000]);
-}
+  // try autoplay
+  let playPromise = music.play();
 
+  if (playPromise !== undefined) {
+    playPromise.then(() => {
+      music.muted = false; // unmute after start
+    }).catch(() => {
+      console.log("Autoplay blocked");
+    });
+  }
+
+  // vibration
+  if (navigator.vibrate) {
+    navigator.vibrate([500,300,500,300,1000]);
+  }
+};
 </script>
 
 </body>
