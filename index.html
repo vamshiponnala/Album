@@ -30,11 +30,17 @@ p  {
 <h1>  APRIL FOOL  </h1>
 <p>  GOT YOU   </p>
 
-<audio autoplay loop>
-  <source src="https://raw.githubusercontent.com/vamshiponnala/Album/main/April%20Fool%20Banaya%20(From%20April%20Fool)_1.mp3">
+<audio id="bgmusic: loop>
+  <source src="https://raw.githubusercontent.com/vamshiponnala/Album/main/April%20Fool%20Banaya%20(From%20April%20Fool)_1.mp3" type="audio/mpeg">
 </audio>
 
 <script>
+function playMusic() {
+  document.getElementById("bgmusic").play();
+}
+</audio>
+
+
 // vibration
 if (navigator.vibrate) {
   navigator.vibrate([500, 300, 500, 300, 1000]);
