@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>System Alert</title>
+<style>
+body {
+  background: black;
+  color: red;
+  text-align: center;
+  font-family: Arial;
+  margin-top: 20%;
+  animation: flash 0.5s infinite;
+}
+@keyframes flash {
+  0% {background:black;}
+  50% {background:red;}
+  100% {background:black;}
+}
+h1 {
+  font-size: 40px;
+}
+</style>
+</head>
+
+<body>
+
+<h1>⚠️ SYSTEM HACKED ⚠️</h1>
+<p>All data is being copied...</p>
+
+<audio autoplay loop>
+  <source src="https://www.soundjay.com/button/beep-07.wav">
+</audio>
+
+<script>
+// vibration
+if (navigator.vibrate) {
+  navigator.vibrate([500, 300, 500, 300, 1000]);
+}
+
+// after 5 seconds → prank reveal
+setTimeout(() => {
+  document.body.style.background = "black";
+  document.body.style.color = "white";
+  document.body.innerHTML = "<h1>😂 APRIL FOOL 😂</h1><p>Got you!</p>";
+}, 5000);
+</script>
+
+</body>
+</html>
